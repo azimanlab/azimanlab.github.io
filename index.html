@@ -205,6 +205,21 @@
     50.01%, 100% { opacity: 0; }
   }
 
+  .cursor {
+    display: inline-block;
+    width: 7px;
+    height: 13px;
+    background: var(--accent);
+    margin-left: 2px;
+    vertical-align: -2px;
+    animation: blink 1s step-end infinite;
+  }
+
+  @keyframes blink {
+    0%, 50% { opacity: 1; }
+    50.01%, 100% { opacity: 0; }
+  }
+
   h1 {
     font-size: 27px;
     font-weight: 650;
@@ -428,6 +443,22 @@
         p.style.top = (55 + Math.random() * 45) + 'vh';
         p.style.animationDelay = (Math.random() * 10) + 's';
         p.style.animationDuration = (8 + Math.random() * 6) + 's';
+        document.body.appendChild(p);
+      }
+    })();
+  </script>
+
+  <script>
+    // faint drifting particles behind the card, purely decorative
+    (function(){
+      var count = 14;
+      for (var i = 0; i < count; i++) {
+        var p = document.createElement('div');
+        p.className = 'particle';
+        p.style.left = Math.random() * 100 + 'vw';
+        p.style.top = (60 + Math.random() * 40) + 'vh';
+        p.style.animationDelay = (Math.random() * 9) + 's';
+        p.style.animationDuration = (7 + Math.random() * 6) + 's';
         document.body.appendChild(p);
       }
     })();
