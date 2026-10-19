@@ -34,14 +34,31 @@
         linear-gradient(90deg, rgba(88, 166, 255, 0.035) 1px, transparent 1px);
       background-size: 100% 100%, 100% 100%, 38px 38px, 38px 38px;
       min-height: 100vh;
+      min-height: 100dvh;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 2rem;
+      padding: 2.5rem 1rem;
       color: var(--text);
       line-height: 1.6;
-      overflow: hidden;
+      overflow-x: hidden;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
       position: relative;
+    }
+
+    body::-webkit-scrollbar {
+      width: 6px;
+    }
+    body::-webkit-scrollbar-track {
+      background: transparent;
+    }
+    body::-webkit-scrollbar-thumb {
+      background: rgba(88, 166, 255, 0.25);
+      border-radius: 3px;
+    }
+    body::-webkit-scrollbar-thumb:hover {
+      background: rgba(88, 166, 255, 0.5);
     }
 
     canvas {
@@ -124,6 +141,7 @@
     .card {
       position: relative;
       z-index: 2;
+      margin: auto;
       background: linear-gradient(165deg, rgba(22, 27, 39, 0.9), rgba(13, 18, 32, 0.95));
       border: 1px solid var(--border);
       border-radius: 20px;
@@ -557,12 +575,14 @@
       align-items: center;
       justify-content: center;
       padding: 1.5rem 1rem;
-      background: rgba(5, 7, 13, 0.82);
+      background: rgba(5, 7, 13, 0.85);
       backdrop-filter: blur(14px);
       -webkit-backdrop-filter: blur(14px);
       opacity: 0;
       pointer-events: none;
       visibility: hidden;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
       transition: opacity 0.3s ease, visibility 0.3s ease;
     }
 
@@ -574,8 +594,10 @@
 
     .modal-card {
       position: relative;
+      margin: auto;
       width: min(100%, 540px);
       max-height: 88vh;
+      max-height: 88dvh;
       display: flex;
       flex-direction: column;
       background: linear-gradient(165deg, rgba(22, 27, 39, 0.96), rgba(13, 18, 32, 0.98));
@@ -807,9 +829,49 @@
       canvas { display: none; }
     }
 
-    @media (max-width: 420px) {
-      .card { padding: 2.25rem 1.3rem; }
-      h1 { font-size: 1.45rem; }
+    @media (max-width: 480px) {
+      body {
+        padding: 1.5rem 0.85rem;
+        align-items: flex-start;
+      }
+      .card {
+        padding: 2.2rem 1.15rem 1.75rem;
+        border-radius: 16px;
+      }
+      h1 { font-size: 1.55rem; }
+      .role { font-size: 0.88rem; }
+      .bg-line { font-size: 0.7rem; }
+      .skills { gap: 0.45rem; }
+      .skill {
+        padding: 0.38rem 0.8rem;
+        font-size: 0.76rem;
+      }
+      .roadmap-trigger {
+        font-size: 0.74rem;
+        padding: 0.6rem 0.85rem;
+      }
+      .fact {
+        font-size: 0.78rem;
+        padding: 0.75rem 0.85rem;
+      }
+      .modal-card {
+        max-height: 90vh;
+        max-height: 90dvh;
+        border-radius: 16px;
+      }
+      .modal-body {
+        padding: 1.15rem 1rem 1.4rem;
+      }
+      .timeline {
+        padding-left: 1.3rem;
+      }
+      .timeline-marker {
+        left: -1.3rem;
+      }
+      .marker-dot {
+        width: 12px;
+        height: 12px;
+      }
     }
   </style>
 </head>
